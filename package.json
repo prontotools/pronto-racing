@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "next": "^3.0.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "name": "pronto-racing",
+  "version": "1.0.0",
+  "description": "Typing competition game",
+  "main": "index.js",
+  "repository": "git@github.com:prontotools/pronto-racing.git",
+  "author": "Mahatthana Nomsawadi <mahatthana.n@gmail.com>",
+  "license": "MIT"
+}
