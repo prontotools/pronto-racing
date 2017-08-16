@@ -4,7 +4,11 @@
         "commonjs": true,
         "es6": true
     },
-    "extends": "react-app",
+    "extends": [
+        "react-app",
+        "standard",
+        "standard-react"
+    ],
     "parser": "babel-eslint",
     "rules": {
         "react/react-in-jsx-scope": "off"
