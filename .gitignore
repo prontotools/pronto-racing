@@ -2,3 +2,7 @@ node_modules/
 
 # next.js build directory
 .next/
+
+# VS Code
+jsconfig.json
+.vscode/
