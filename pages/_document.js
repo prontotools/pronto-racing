@@ -2,6 +2,8 @@ import Document, { Head, Main, NextScript } from 'next/document'
 import { extractCritical } from 'emotion-server'
 import { flush } from 'emotion'
 
+import stylesheet from 'styles/index.css'
+
 const dev = process.env.NODE_ENV !== 'production'
 
 export default class MyDocument extends Document {
@@ -29,6 +31,7 @@ export default class MyDocument extends Document {
           <title>Pronto Racing</title>
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
+          <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
         </Head>
         <body>
           <Main />

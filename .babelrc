@@ -12,6 +12,14 @@
       {
         "inline": true
       }
+    ],
+    [
+      "wrap-in-js",
+      {
+        "extensions": [
+          "css$"
+        ]
+      }
     ]
   ]
 }
