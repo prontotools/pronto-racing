@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "babel-plugin-emotion": "^7.3.2",
+    "emotion": "^7.3.2",
+    "emotion-server": "^7.3.2",
     "next": "^3.0.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"

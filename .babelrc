@@ -6,6 +6,12 @@
       {
         "root": ["."]
       }
+    ],
+    [
+      "emotion",
+      {
+        "inline": true
+      }
     ]
   ]
 }
