@@ -17,7 +17,7 @@
     "dev": "next",
     "build": "next build && next export",
     "start": "next start",
-    "deploy": "yarn build && ssh-keyscan -H github.com >> ~/.ssh/known_hosts && gh-pages -d out",
+    "deploy": "yarn build && ssh-keyscan -H github.com >> ~/.ssh/known_hosts && gh-pages -d out -m 'Deploy [ci skip]'",
     "precommit": "lint-staged"
   },
   "lint-staged": {
