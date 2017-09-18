@@ -1,0 +1,69 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+
+base: &base
+  working_directory: ~/pronto-racing
+  docker:
+    - image: circleci/node:8.5.0
+
+
+version: 2
+jobs:
+  _build:
+
+    <<: *base
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: |
+        yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  deploy:
+
+    <<: *base
+
+    steps:
+      - add_ssh_keys
+      - attach_workspace:
+          at: .
+
+      - run:
+          name: configure git detail
+          command: |
+            git config --global user.email "me@codekelvin.com"
+            git config --global user.name "Mahatthana Nomsawadi via CircleCI"
+      - run:
+          name: deploy to gh-pages
+          command: yarn deploy
+
+workflows:
+  version: 2
+  build_test_and_deploy:
+    jobs:
+      - _build:
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - _build
