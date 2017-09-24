@@ -1,3 +1,4 @@
+const isProd = process.env.NODE_ENV === 'production'
 module.exports = {
   webpack: (config, { dev }) => {
     if (dev) {
@@ -26,5 +27,6 @@ module.exports = {
   },
   exportPathMap: () => ({
     '/': { page: '/' }
-  })
+  }),
+  assetPrefix: isProd ? '/pronto-racing/' : ''
 }
