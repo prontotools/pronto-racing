@@ -1,4 +1,6 @@
 const isProd = process.env.NODE_ENV === 'production'
+const isDeployingOnGhPages = process.env.GH_PAGES === 'true'
+
 module.exports = {
   webpack: (config, { dev }) => {
     if (dev) {
@@ -26,8 +28,7 @@ module.exports = {
     return config
   },
   exportPathMap: () => ({
-    '/': { page: '/' },
-    '/play': { page: '/play' }
+    '/': { page: '/' }
   }),
-  assetPrefix: isProd ? '/pronto-racing/' : ''
+  assetPrefix: isProd && isDeployingOnGhPages ? '/pronto-racing/' : ''
 }
