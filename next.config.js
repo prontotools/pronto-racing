@@ -26,7 +26,8 @@ module.exports = {
     return config
   },
   exportPathMap: () => ({
-    '/': { page: '/' }
+    '/': { page: '/' },
+    '/play': { page: '/play' }
   }),
   assetPrefix: isProd ? '/pronto-racing/' : ''
 }
