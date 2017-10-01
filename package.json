@@ -17,7 +17,7 @@
     "dev": "next",
     "dev:dist": "yarn build && serve out",
     "start": "next start",
-    "deploy": "GH_PAGES=true && yarn build && ssh-keyscan -H github.com >> ~/.ssh/known_hosts && gh-pages --dotfiles -d out -m 'Deploy [ci skip]'",
+    "deploy": "GH_PAGES=true yarn build && ssh-keyscan -H github.com >> ~/.ssh/known_hosts && gh-pages --dotfiles -d out -m 'Deploy [ci skip]'",
     "build": "next build && next export && yarn _copy-static-files",
     "_copy-static-files": "cp -r root-static/. out",
     "precommit": "lint-staged"
