@@ -51,10 +51,11 @@ export default class TypingGame extends React.Component {
     }
   }
   onChange = e => {
-    if (this.props.onType) {
-      this.props.onType()
+    const { onProgress, onType, text } = this.props
+    if (onType) {
+      onType()
     }
-    const { text } = this.props
+
     const { charactersCommitted } = this.state
     const nextInputText = e.target.value
     if (
@@ -68,8 +69,8 @@ export default class TypingGame extends React.Component {
         inputText: '',
         charactersCommitted: nextCharactersCommitted
       })
-      if (this.props.onProgress) {
-        this.props.onProgress(nextCharactersCommitted, text.length)
+      if (onProgress) {
+        onProgress(nextCharactersCommitted, text.length)
       }
     } else {
       this.setState({ inputText: nextInputText.replace(/^\s+/, '') })
