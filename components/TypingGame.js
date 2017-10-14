@@ -42,7 +42,8 @@ const GameInput = styled.input`
 
 export default class TypingGame extends React.Component {
   static propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
+    onProgress: PropTypes.func
   }
   state = { charactersCommitted: 0, inputText: '' }
   onChange = e => {
@@ -50,13 +51,19 @@ export default class TypingGame extends React.Component {
     const { charactersCommitted } = this.state
     const nextInputText = e.target.value
     if (
-      nextInputText.endsWith(' ') &&
-      text.substr(charactersCommitted, nextInputText.length) === nextInputText
+      nextInputText === text.substr(charactersCommitted) ||
+      (nextInputText.endsWith(' ') &&
+        text.substr(charactersCommitted, nextInputText.length) ===
+          nextInputText)
     ) {
+      const nextCharactersCommitted = charactersCommitted + nextInputText.length
       this.setState({
         inputText: '',
-        charactersCommitted: charactersCommitted + nextInputText.length
+        charactersCommitted: nextCharactersCommitted
       })
+      if (this.props.onProgress) {
+        this.props.onProgress(charactersCommitted, text.length)
+      }
     } else {
       this.setState({ inputText: nextInputText })
     }
@@ -68,6 +75,7 @@ export default class TypingGame extends React.Component {
     const past = text.substr(0, charactersCommitted)
     const present = (text.substr(charactersCommitted).match(/^\S+/) || [''])[0]
     const future = text.substr(charactersCommitted + present.length)
+    const done = charactersCommitted === text.length
     return (
       <GameContainer>
         <GameText ok={ok}>
@@ -83,6 +91,7 @@ export default class TypingGame extends React.Component {
             autoFocus
             onChange={this.onChange}
             value={inputText}
+            disabled={done}
           />
         </GameInputArea>
       </GameContainer>
