@@ -2,11 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'react-emotion'
 
-const GameContainer = styled.div`
-  max-width: 32em;
-  margin: 1em auto;
-  font-size: 24px;
-`
+const TypingGameContainer = styled.div`font-size: 24px;`
 
 const GameText = styled.div`
   line-height: 1.5;
@@ -23,7 +19,7 @@ const GameText = styled.div`
   }
 `
 
-const GameInputArea = styled.div`
+const InputArea = styled.div`
   margin-top: 1em;
   & label {
     color: #888;
@@ -31,7 +27,7 @@ const GameInputArea = styled.div`
   }
 `
 
-const GameInput = styled.input`
+const Input = styled.input`
   width: 100%;
   box-sizing: border-box;
   font: inherit;
@@ -84,15 +80,15 @@ export default class TypingGame extends React.Component {
     const future = text.substr(charactersCommitted + present.length)
     const done = charactersCommitted === text.length
     return (
-      <GameContainer>
+      <TypingGameContainer>
         <GameText ok={ok}>
           <span className='past'>{past}</span>
           <span className='present'>{present}</span>
           <span className='future'>{future}</span>
         </GameText>
-        <GameInputArea>
+        <InputArea>
           <label htmlFor='text'>Type the text:</label>
-          <GameInput
+          <Input
             ok={ok}
             id='text'
             autoFocus
@@ -100,8 +96,8 @@ export default class TypingGame extends React.Component {
             value={inputText}
             disabled={done}
           />
-        </GameInputArea>
-      </GameContainer>
+        </InputArea>
+      </TypingGameContainer>
     )
   }
 }
