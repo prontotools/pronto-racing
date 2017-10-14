@@ -1,4 +1,4 @@
-# Pronto Rcing
+# Pronto Racing
 [Pronto Racing](https://prontotools.github.io/pronto-racing/) is a typing game inspired by [TypeRacer](http://play.typeracer.com/) but with more competition oriented features.
 
 ## Build Dependencies
