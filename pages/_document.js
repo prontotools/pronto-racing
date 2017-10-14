@@ -1,10 +1,22 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import { extractCritical } from 'emotion-server'
-import { flush } from 'emotion'
+import { flush, hydrate, injectGlobal } from 'emotion'
 
+import { extractCritical } from 'emotion-server'
 import stylesheet from 'styles/index.css'
 
 const dev = process.env.NODE_ENV !== 'production'
+
+// Adds server generated styles to emotion cache.
+if (typeof window !== 'undefined') {
+  hydrate(window.__NEXT_DATA__.ids)
+}
+
+injectGlobal`
+  html, body {
+    color: #333;
+    font-size: 16px;
+  }
+`
 
 export default class MyDocument extends Document {
   static getInitialProps ({ renderPage }) {
