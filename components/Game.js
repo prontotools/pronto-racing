@@ -43,7 +43,7 @@ export default class Game extends React.Component {
           onType={this.onType}
         />
         <Status>
-          {(progress * 100).toFixed(0)}% completed{wpm ? `, ${wpm} WPM` : ''}
+          {(progress * 100).toFixed(0)}% completed{wpm ? `, ${wpm.toFixed(0)} WPM` : ''}
         </Status>
       </GameContainer>
     )
