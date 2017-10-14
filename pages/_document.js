@@ -11,18 +11,17 @@ if (typeof window !== 'undefined') {
   hydrate(window.__NEXT_DATA__.ids)
 }
 
-injectGlobal`
-  html, body {
-    color: #333;
-    font-size: 16px;
-  }
-`
-
 export default class MyDocument extends Document {
   static getInitialProps ({ renderPage }) {
     if (dev) {
       flush()
     }
+    injectGlobal`
+      html, body {
+        color: #333;
+        font-size: 16px;
+      }
+    `
     const page = renderPage()
     const styles = extractCritical(page.html)
     return { ...page, ...styles }
