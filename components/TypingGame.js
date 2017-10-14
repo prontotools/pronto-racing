@@ -72,7 +72,7 @@ export default class TypingGame extends React.Component {
         this.props.onProgress(nextCharactersCommitted, text.length)
       }
     } else {
-      this.setState({ inputText: nextInputText })
+      this.setState({ inputText: nextInputText.replace(/^\s+/, '') })
     }
   }
   render () {
