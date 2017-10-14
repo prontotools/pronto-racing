@@ -5,7 +5,7 @@
 This project requires Node.js and the Yarn package manager.
 
 ## Development
-First, instal the required dependencies using:
+First, install the required dependencies using:
 
 `yarn install`
 
