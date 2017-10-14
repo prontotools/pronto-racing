@@ -39,7 +39,8 @@ const Input = styled.input`
 export default class TypingGame extends React.Component {
   static propTypes = {
     text: PropTypes.string,
-    onProgress: PropTypes.func
+    onProgress: PropTypes.func,
+    onType: PropTypes.func
   }
   state = { charactersCommitted: 0, inputText: '' }
   componentWillReceiveProps (nextProps) {
@@ -50,6 +51,9 @@ export default class TypingGame extends React.Component {
     }
   }
   onChange = e => {
+    if (this.props.onType) {
+      this.props.onType()
+    }
     const { text } = this.props
     const { charactersCommitted } = this.state
     const nextInputText = e.target.value
@@ -65,7 +69,7 @@ export default class TypingGame extends React.Component {
         charactersCommitted: nextCharactersCommitted
       })
       if (this.props.onProgress) {
-        this.props.onProgress(charactersCommitted, text.length)
+        this.props.onProgress(nextCharactersCommitted, text.length)
       }
     } else {
       this.setState({ inputText: nextInputText })
