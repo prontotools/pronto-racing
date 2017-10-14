@@ -50,5 +50,20 @@ export const texts = {
       "Just at this juncture the boy felt a slow, fateful grip closing on his ear, and a steady lifting impulse. In that wise he was borne across the house and deposited in his own seat, under a peppering fire of giggles from the whole school. Then the master stood over him during a few awful moments, and finally moved away to his throne without saying a word. But although Tom's ear tingled, his heart was jubilant.",
     name: 'The Adventures of Tom Sawyer by Mark Twain',
     url: 'https://www.gutenberg.org/ebooks/74'
+  },
+  10: {
+    text:
+      "It's Hacktoberfest 2017! Let’s contribute to open source! This round of CodeClub will be Hacktoberfest-themed!! It will take place on October 14th at Pronto Tools."
+  },
+  11: {
+    text: "About CodeClub, we don't talk about CodeClub"
+  },
+  12: {
+    text:
+      "'There are two ways of constructing a software design. One way is to make it so simple that there are obviously no deficiencies. nd the other way is to make it so complicated that there are no obvious deficiencies.' - C.A.R. Hoare'"
+  },
+  13: {
+    text:
+      "'Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.' - Linus Torvalds"
   }
 }
