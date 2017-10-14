@@ -27,6 +27,19 @@ const InputArea = styled.div`
   }
 `
 
+const Attribution = styled.div`
+  margin: 1em 0 3em;
+  font-size: 0.5em;
+  text-align: right;
+  color: grey;
+
+  & a,
+  a:visited {
+    color: grey;
+    text-decoration: none;
+  }
+`
+
 const Input = styled.input`
   width: 100%;
   box-sizing: border-box;
@@ -39,6 +52,8 @@ const Input = styled.input`
 export default class TypingGame extends React.Component {
   static propTypes = {
     text: PropTypes.string,
+    sourceName: PropTypes.string,
+    sourceUrl: PropTypes.string,
     onProgress: PropTypes.func,
     onType: PropTypes.func
   }
@@ -76,7 +91,7 @@ export default class TypingGame extends React.Component {
     }
   }
   render () {
-    const { text } = this.props
+    const { text, sourceName, sourceUrl } = this.props
     const { charactersCommitted, inputText } = this.state
     const ok = text.substr(charactersCommitted).startsWith(inputText)
     const past = text.substr(0, charactersCommitted)
@@ -90,6 +105,9 @@ export default class TypingGame extends React.Component {
           <span className='present'>{present}</span>
           <span className='future'>{future}</span>
         </GameText>
+        <Attribution className='source'>
+          Excerpt from <a href={sourceUrl}>{sourceName}</a>
+        </Attribution>
         <InputArea>
           <label htmlFor='text'>Type the text:</label>
           <Input
