@@ -46,6 +46,13 @@ export default class TypingGame extends React.Component {
     onProgress: PropTypes.func
   }
   state = { charactersCommitted: 0, inputText: '' }
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.text !== this.props.text) {
+      throw new Error(
+        'Error! This component does not support receiving new text. Please unmount this component and mount a new component (using `key={text}`)'
+      )
+    }
+  }
   onChange = e => {
     const { text } = this.props
     const { charactersCommitted } = this.state
