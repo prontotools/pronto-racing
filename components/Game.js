@@ -10,7 +10,9 @@ const GameContainer = styled.div`
 const Status = styled.div`margin-top: 1em;`
 export default class Game extends React.Component {
   static propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
+    sourceName: PropTypes.string,
+    sourceUrl: PropTypes.string
   }
   state = {
     wpm: null,
@@ -33,12 +35,14 @@ export default class Game extends React.Component {
     })
   }
   render () {
-    const { text } = this.props
+    const { text, sourceName, sourceUrl } = this.props
     const { progress, wpm } = this.state
     return (
       <GameContainer>
         <TypingGame
           text={text}
+          sourceName={sourceName}
+          sourceUrl={sourceUrl}
           onProgress={this.onProgress}
           onType={this.onType}
         />
