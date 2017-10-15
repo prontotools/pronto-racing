@@ -1,15 +1,13 @@
 export const texts = {
   1: {
     text:
-      'Then Mary did a strange thing. She leaned forward and asked him a question she had never dreamed of asking any one before. And she tried to ask it in Yorkshire because that was his language, and in India a native was always pleased if you knew his speech.',
-    name: 'The Secret Garden by Frances Hodgson Burnett',
-    url: 'https://www.gutenberg.org/ebooks/17396'
+      'I have a pen. I have an apple. Uh! Apple-pen. I have a pen. I have pineapple. Uh! Pineapple-pen. Apple-pen... Pineapple-pen... Uh!! Pen-pineapple-apple-pen.',
+    name: 'PPAP by Pikotaro'
   },
   2: {
     text:
-      "Just at this juncture the boy felt a slow, fateful grip closing on his ear, and a steady lifting impulse. In that wise he was borne across the house and deposited in his own seat, under a peppering fire of giggles from the whole school. Then the master stood over him during a few awful moments, and finally moved away to his throne without saying a word. But although Tom's ear tingled, his heart was jubilant.",
-    name: 'The Adventures of Tom Sawyer by Mark Twain',
-    url: 'https://www.gutenberg.org/ebooks/74'
+      "It's supercalifragilisticexpialidocious. Even though the sound of it is something quite atrocious. If you say it loud enough, you'll always sound precocious. Supercalifragilisticexpialidocious!",
+    name: 'Supercalifragilisticexpialidocious from Mary Poppins'
   },
   3: {
     text:
@@ -40,5 +38,17 @@ export const texts = {
       'But the attention of every lady was soon caught by a young man, whom they had never seen before, of most gentlemanlike appearance, walking with another officer on the other side of the way. The officer was the very Mr. Denny concerning whose return from London Lydia came to inquire, and he bowed as they passed.',
     name: 'Pride and Prejudice by Jane Austen',
     url: 'https://www.gutenberg.org/ebooks/1342'
+  },
+  8: {
+    text:
+      'Then Mary did a strange thing. She leaned forward and asked him a question she had never dreamed of asking any one before. And she tried to ask it in Yorkshire because that was his language, and in India a native was always pleased if you knew his speech.',
+    name: 'The Secret Garden by Frances Hodgson Burnett',
+    url: 'https://www.gutenberg.org/ebooks/17396'
+  },
+  9: {
+    text:
+      "Just at this juncture the boy felt a slow, fateful grip closing on his ear, and a steady lifting impulse. In that wise he was borne across the house and deposited in his own seat, under a peppering fire of giggles from the whole school. Then the master stood over him during a few awful moments, and finally moved away to his throne without saying a word. But although Tom's ear tingled, his heart was jubilant.",
+    name: 'The Adventures of Tom Sawyer by Mark Twain',
+    url: 'https://www.gutenberg.org/ebooks/74'
   }
 }

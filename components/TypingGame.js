@@ -98,6 +98,7 @@ export default class TypingGame extends React.Component {
     const present = (text.substr(charactersCommitted).match(/^\S+/) || [''])[0]
     const future = text.substr(charactersCommitted + present.length)
     const done = charactersCommitted === text.length
+    const source = sourceUrl ? <a href={sourceUrl}>{sourceName}</a> : sourceName
     return (
       <TypingGameContainer>
         <GameText ok={ok}>
@@ -105,9 +106,7 @@ export default class TypingGame extends React.Component {
           <span className='present'>{present}</span>
           <span className='future'>{future}</span>
         </GameText>
-        <Attribution className='source'>
-          Excerpt from <a href={sourceUrl}>{sourceName}</a>
-        </Attribution>
+        <Attribution>Excerpt from {source}</Attribution>
         <InputArea>
           <label htmlFor='text'>Type the text:</label>
           <Input
