@@ -29,9 +29,13 @@ export default class Game extends React.Component {
     if (!this.started) this.started = Date.now()
   }
   onProgress = (current, total) => {
+    const progress = current / total
+    const wpm = current / 5 / ((Date.now() - this.started) / 60000)
+    const stats = JSON.parse(global.localStorage.getItem('stats')) || []
+    global.localStorage.setItem('stats', [...stats, wpm])
     this.setState({
-      progress: current / total,
-      wpm: current / 5 / ((Date.now() - this.started) / 60000)
+      progress,
+      wpm
     })
   }
   render () {
