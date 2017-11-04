@@ -1,5 +1,6 @@
-import Link from 'next/link'
 import Test from 'components/Test'
+
+import Link from '../components/Link'
 
 const Root = () => (
   <div>

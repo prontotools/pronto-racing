@@ -1,5 +1,7 @@
 const isProd = process.env.NODE_ENV === 'production'
 const isDeployingOnGhPages = process.env.GH_PAGES === 'true'
+const exportPathMap = require('./exportPathMap')
+const webpack = require('webpack')
 
 module.exports = {
   webpack: (config, { dev }) => {
@@ -10,7 +12,11 @@ module.exports = {
         loader: 'eslint-loader'
       })
     }
-
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.GH_PAGES': JSON.stringify(process.env.GH_PAGES)
+      })
+    )
     config.module.rules.push(
       {
         test: /\.css$/,
@@ -27,9 +33,6 @@ module.exports = {
 
     return config
   },
-  exportPathMap: () => ({
-    '/': { page: '/' },
-    '/play': { page: '/play' }
-  }),
+  exportPathMap: () => exportPathMap,
   assetPrefix: isProd && isDeployingOnGhPages ? '/pronto-racing/' : ''
 }
