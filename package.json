@@ -4,6 +4,7 @@
     "babel-plugin-wrap-in-js": "^1.1.1",
     "emotion": "^7.3.2",
     "emotion-server": "^7.3.2",
+    "firebase": "^4.5.1",
     "gh-pages": "^1.0.0",
     "next": "^4.0.4",
     "normalize.css": "^7.0.0",
